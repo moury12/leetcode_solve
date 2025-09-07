@@ -2,20 +2,20 @@
 #include <vector>
 using namespace std;
   int removeDuplicates(vector<int>& nums) {
-    int r=1;
-    int l=0;
-        for(int i=0 ;i<nums.size();i++){
-            if(nums[l]!=nums[r]){
+   
+    int l=1;
+        for(int i=1 ;i<nums.size();i++){
+            if(nums[i]!=nums[i-1]){
             nums[l]=nums[i];
-               r++; 
+              l++;
             }
-         
+          
         }
         for (int v : nums){
     cout <<"  "<< v;
 }
 cout<<endl;
-       return k;
+       return l;
     }
 int main(){
     vector<int> vec={0,1,2,2,3,0,4,2};
