@@ -26,8 +26,7 @@ int maxAreaTwoPointer(vector<int> &height)
 {
     int ans = 0;
     int maxWater = 0;
-    for (int i = 0; i < height.size(); i++)
-    {
+   
         int leftHeight = 0;
         int rightHeight = height.size() - 1;
         while (leftHeight < rightHeight)
@@ -36,18 +35,19 @@ int maxAreaTwoPointer(vector<int> &height)
             int widthWate = rightHeight - leftHeight;
             int ans = heightWater * widthWate;
             maxWater = max(maxWater, ans);
-            if (height[leftHeight] > height[rightHeight])
-            {
-                rightHeight--;
-            }
-            else
+            if (height[leftHeight] < height[rightHeight])
             {
                 leftHeight++;
             }
+            else
+            {
+                rightHeight--;
+            }
         }
+         return maxWater;
     }
-    return maxWater;
-}
+   
+
 int main()
 {
     vector<int> heights = {1, 8, 6, 2, 5, 4, 8, 3, 7};
