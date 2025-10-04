@@ -26,30 +26,35 @@ vector<int> productExceptSelfBruteForce(vector<int> &nums)
 vector<int> productExceptSelf(vector<int> &nums)
 {
     int n = nums.size();
-    vector<int> result = {};
-    vector<int> prefix(n, 1);
-    vector<int> suffix(n, 1);
-
+    
+   vector<int> result (n, 1);
+    // vector<int> prefix(n, 1);
+    // vector<int> suffix(n, 1);
+int prefix=1;
+int suffix=1;
     for (int i = 1; i < n; i++)
     {
-        prefix[i] = prefix[i - 1] * nums[i - 1];
+        prefix  *= nums[i - 1];
+        // suffix = suffix*nums[n-1];
+        result[i]=prefix;
     }
 
     for (int i = n - 2; i >= 0; i--)
     {
-        suffix[i] = suffix[i + 1] * nums[i + 1];
+        suffix =suffix * nums[i + 1];
+        result[i] *= suffix ;
     }
 
-    for (int i = 0; i < n; i++)
+    // for (int i = 0; i < n; i++)
 
+    // {
+    //     result.push_back(prefix[i] * suffix[i]);
+    // }
+     for (int i =0 ; i < n; i++)
     {
-        result.push_back(prefix[i] * suffix[i]);
+        nums[i]= result[i];
     }
-    for (int val : result)
-    {
-        cout << val << " ";
-    }
-    return result;
+    return nums;
 }
 int main()
 {
