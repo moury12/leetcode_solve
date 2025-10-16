@@ -26,9 +26,8 @@ int search(vector<int> nums, int target)
                 st = mid + 1;
             }
         }
-       
     }
-     return -1;
+    return -1;
 }
 int main()
 {
