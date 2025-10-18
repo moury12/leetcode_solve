@@ -7,8 +7,8 @@ int singleNonDuplicate(vector<int> &nums)
   if(nums.size()==1){
     return nums[0];
 }
- int st = 1;
-  int end = nums.size() - 2;
+ int st = 0;
+  int end = nums.size() - 1;
 
   while (st <= end)
   {
@@ -21,7 +21,7 @@ int singleNonDuplicate(vector<int> &nums)
     {
       if (mid % 2 == 0)
       {
-        end = mid - 2;
+        end = mid - 1;
       }
       else
       {
@@ -32,7 +32,7 @@ int singleNonDuplicate(vector<int> &nums)
     {
       if (mid % 2 == 0)
       {
-        st = mid + 2;
+        st = mid + 1;
       }
       else
       {
@@ -44,6 +44,6 @@ int singleNonDuplicate(vector<int> &nums)
 }
 int main()
 {
-  vector<int> nums = {1,1,2};
+  vector<int> nums = {1,2,2,3,3};
   cout << singleNonDuplicate(nums);
 }
