@@ -2,7 +2,8 @@
 using namespace std;
 #include <vector>
 #include <algorithm>
-
+/// Time complexity O(m+n)
+/// space Complexity O(1)
 void merge(vector<int> &nums1, int m, vector<int> &nums2, int n)
 {
     int idx = m+n-1;
