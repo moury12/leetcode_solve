@@ -5,7 +5,7 @@ using namespace std;
 
 bool isPossible(vector<int> nums, int n, int m, int mid)
 {
-    sort(nums.begin(), nums.end());
+  
     int lastPosition = nums[0];
     int c = 1;
     for (int i = 0; i < n; i++)
@@ -15,32 +15,32 @@ bool isPossible(vector<int> nums, int n, int m, int mid)
             lastPosition = nums[i];
             c++;
         }
-    }
-    if (c == m)
+         if (c == m)
     {
         return true;
     }
+    }
+   
     return false;
 }
 int locateStall(vector<int> nums, int n, int m)
 {
-    int minDistance = INT_MAX;
-    int maximumDistance = INT_MIN;
-    for (int i = 0; i < n; i++)
-    {
-        minDistance = min(minDistance, nums[i]);
-        maximumDistance = max(maximumDistance, nums[i]);
-    }
+   sort(nums.begin(), nums.end());
+    // for (int i = 0; i < n; i++)
+    // {
+    //     minDistance = min(minDistance, nums[i]);
+    //     maximumDistance = max(maximumDistance, nums[i]);
+    // }
     int st = 1;
-    int end = maximumDistance - minDistance;
-    int ans = st;
+    int end = nums[n-1] - nums[0];
+    int ans = -1;
     while (st <= end)
     {
         int mid = (st + end) / 2;
         // cout << " mid :" << mid << endl;
         if (isPossible(nums, n, m, mid))
         {
-            ans = max(ans, mid);
+            ans = mid;
             // cout << " ans :" << ans;
             st = mid + 1;
         }
