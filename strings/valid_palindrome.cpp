@@ -19,7 +19,11 @@ bool isPalindrome(string s) {
             }
             if(tolower(st)!= tolower(end)){
                 return false;
+            }else{
+                 st++;
+            end --;
             }
+           
         }
         return true;
         
