@@ -8,6 +8,7 @@
         "ranges": "cpp",
         "span": "cpp",
         "cmath": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "algorithm": "cpp"
     }
 }
