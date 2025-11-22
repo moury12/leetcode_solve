@@ -2,7 +2,7 @@
 #include <String>
 using namespace  std;
 bool isAlphaNumeric(char c){
-if((c<= 0 && c>=9)|| (tolower(c)<='a'&& tolower(c)>='z')){
+if((c>= '0' && c<='9')|| (tolower(c)>='a'&& tolower(c)<='z')){
     return true;
 }
 return false;
@@ -12,15 +12,15 @@ bool isPalindrome(string s) {
         int end = s.length()-1;
         while (st<end)
         {
-            if(isAlphaNumeric(s[st])){
+            if(!isAlphaNumeric(s[st])){
                 st++;
-            }if(isAlphaNumeric(s[end])){
+            }else if(!isAlphaNumeric(s[end])){
                 end --;
             }
-            if(tolower(st)!= tolower(end)){
+           else  if(tolower(s[st])!= tolower(s[end])){
                 return false;
             }else{
-                 st++;
+           st++;
             end --;
             }
            
