@@ -20,7 +20,9 @@ string reverseWords(string s)
             i++;
         }
         reverse(word.begin(), word.end());
-        ans += " " + word;
+       if(word.length()>0){
+         ans += " " + word;
+       }
     }
     // jehetu first e ekta space diye add kora hoche aijnno string 1 index theke start hobe not 0 tahole smner extra space minimized
     return ans.substr(1);
