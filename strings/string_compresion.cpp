@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+#include <vector>
+#include <string>
+int compress(vector<char> &chars)
+{
+    int idx = 0;
+    int n = chars.size();
+    for (int i = 0; i < n; i++)
+    {
+        char ch = chars[i];
+        int count = 0;
+        while (i < n && ch == chars[i])
+        {
+            count++;
+            i++;
+        }
+        if (count == 1)
+        {
+            chars[idx++] = ch;
+        }
+        else
+        {
+            chars[idx++] = ch;
+            string digits = to_string(count);
+            for (char ch : digits)
+            {
+                chars[idx++] = ch;
+            }
+        }
+        i--;
+    }
+    // for (char ch : chars)
+    // {
+    //     cout << ch;
+    // }
+    chars.resize(idx);
+    return idx;
+}
+int main()
+{
+    vector<char> chars = {'a', 'a', 'b', 'b', 'c', 'c', 'c'};
+    cout << compress(chars);
+}
