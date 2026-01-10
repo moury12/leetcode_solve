@@ -3,9 +3,10 @@ using namespace std;
 #include <string>
 #include <algorithm>
 string reverseWords(string s)
-{
+{ 
     int n = s.length();
     // store final ans here
+
     string ans = "";
     // first reverse whole sentence
     reverse(s.begin(), s.end());
@@ -15,7 +16,8 @@ string reverseWords(string s)
         string word = "";
         // jotokhn projnnto space na pabe loop cholbe and length theke na ber hoye jabe
         while (i < n && s[i] != ' ')
-        {
+        { 
+            
             word += s[i];
             i++;
         }

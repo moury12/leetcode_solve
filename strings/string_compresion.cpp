@@ -1,25 +1,44 @@
 #include <iostream>
+using namespace std;
 #include <vector>
-
-using namespace  std;
-   int compress(vector<char>& chars) {
-        ///get length of char array
-        int n = chars.size();
-        ///where in the index of vector i will replace the cout value or the value 
-        int writeIdx =0 ;
-        for( int i =0 ; i <n;i++){
-            ///for comparing with current index char initially it sets to first index
-            char ch = chars[i];
-            ///using this if any character occure multiple time we will add and get count 
-            int count = 0;
-            int idx =0;
-            if(ch==chars[i]){
-                count++;
+#include <string>
+int compress(vector<char> &chars)
+{
+    int idx = 0;
+    int n = chars.size();
+    for (int i = 0; i < n; i++)
+    {
+        char ch = chars[i];
+        int count = 0;
+        while (i < n && ch == chars[i])
+        {
+            count++;
+            i++;
+        }
+        if (count == 1)
+        {
+            chars[idx++] = ch;
+        }
+        else
+        {
+            chars[idx++] = ch;
+            string digits = to_string(count);
+            for (char ch : digits)
+            {
+                chars[idx++] = ch;
             }
         }
+        i--;
     }
-int main(){
-
-vector<char> s ={'a','a','b','b','c','c','c'};
-cout<<compress(s);
+    // for (char ch : chars)
+    // {
+    //     cout << ch;
+    // }
+    chars.resize(idx);
+    return idx;
+}
+int main()
+{
+    vector<char> chars = {'a', 'a', 'b', 'b', 'c', 'c', 'c'};
+    cout << compress(chars);
 }
