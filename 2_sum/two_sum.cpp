@@ -17,11 +17,14 @@ vector<int> twoSum(vector<int> &nums, int target)
 // != um.end(): এর মানে হলো "শেষ সীমানা পর্যন্ত পৌঁছানোর আগেই কিছু একটা পাওয়া গেছে"।
         if (um.find(sec) != um.end())
         {
-            ans.push_back(first);
-            ans.push_back(sec);
+            ans.push_back(um[sec]);
+            
+            ans.push_back(i);
             break;
         }
-        um[first] = sec;
+        // cout<<"um.find(sec) "<<um[sec]<<endl;
+        um[first] = i;
+        first++;
     }
     return ans;
 }

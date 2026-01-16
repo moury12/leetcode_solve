@@ -98,10 +98,12 @@ bool searchMatrix(vector<vector<int>> &matrix, int target)
         }
         else if (target > matrix[r][c])
         {
+            //bottom e jabe mid
             r++;
         }
         else
         {
+            //left e jabe mid 
             c--;
         }
     }
