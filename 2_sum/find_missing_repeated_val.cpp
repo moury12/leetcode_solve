@@ -4,6 +4,8 @@
 using namespace std;
 vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
         vector<int> ans ={};
+        int n = grid.size();
+        // for()
         
     }
     int main(){
