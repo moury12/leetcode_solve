@@ -34,39 +34,51 @@ vector<vector<int>> threeSumBruteForce(vector<int> &nums)
     }
     return ans;
 }
+// time complexity O(N^2)
 vector<vector<int>> threeSumOptimized(vector<int> &nums)
 {
     vector<vector<int>> ans;
     int n = nums.size();
     sort(nums.begin(), nums.end());
 
-    
     for (int i = 0; i < n; i++)
     {
+        if (i > 0 && nums[i] == nums[i - 1])
+        {
+            continue;
+        }
         int b = i + 1;
         int c = n - 1;
- while (b<c)
- 
-    /* code */
- 
-  {      if (nums[i] + nums[b] + nums[c] == 0)
-        {
-            vector<int> triplet = {nums[i], nums[b], nums[c]};
-            ans.push_back(triplet);
-            b++;
-            c--;
-        }
-        else if (nums[i] + nums[b] + nums[c] < 0)
-        {
-            b++;
-        }
-        else
-        {
-            c--;
-        }}
-    
+        while (b < c)
 
-}    return ans;}
+        /* code */
+
+        {
+            int sum = nums[i] + nums[b] + nums[c];
+            if (sum == 0)
+            {
+                vector<int> triplet = {nums[i], nums[b], nums[c]};
+                ans.push_back(triplet);
+                b++;
+                c--;
+                while (b < c && nums[b] == nums[b - 1])
+                {
+                    b++;
+                }
+            }
+            else if (sum < 0)
+            {
+                b++;
+            }
+            else
+            {
+                c--;
+            }
+        }
+    }
+    return ans;
+}
+
 int main()
 {
     vector<int> nums = {-1, 0, 1, 2, -1, -4};
