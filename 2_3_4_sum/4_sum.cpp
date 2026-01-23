@@ -4,13 +4,18 @@
 #include <algorithm>
 
 using namespace std;
+// 4টা সংখ্যা খুঁজছে যাদের যোগফল = target
+// duplicate বাদ দিয়ে
+// efficient ভাবে
 vector<vector<int>> fourSum(vector<int> &nums, int target)
 {
+// Time: O(n³)
+// Space: O(1) extra (answer বাদ)
     vector<vector<int>> ans;
     int n = nums.size();
-
+// Without sorting → two pointer impossible
     sort(nums.begin(), nums.end());
-
+// 4Sum = 2 loops + 2 pointers
     for (int i = 0; i < n; i++)
     {
         if (i > 0 && nums[i] == nums[i - 1])
