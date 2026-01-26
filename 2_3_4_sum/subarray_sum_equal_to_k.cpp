@@ -30,22 +30,21 @@ int subarraySumBruteForce(vector<int> &nums, int k) {
 }
 
 int subarraySum(vector<int> &nums, int k) {
-  int count = 0;
+ int count = 0;
   int n = nums.size();
 unordered_map<int,int> um ;
-  vector<int> prefix;
-  for (int i = 0; i < n; i++) {
-    if(i ==0){
-           prefix.push_back(nums[i]);
-    }else{
-   prefix.push_back(prefix[i-1]+nums[i]);
+  vector<int> prefix(n,0);
+  prefix[0]=nums[0];
+  for (int i = 1; i < n; i++) {
+   prefix[i]=prefix[i-1]+nums[i];
     }
-    // int sum = k-prefix[i];
-if(um.find(prefix[i])!= um.end()){
-    count++;
-}
-    um[prefix[i]]=count;
-
+  for(int j =0 ; j<n;j++){
+    if(prefix[j]==k) count++;
+    int val = prefix[j]-k;
+    if(um.find(val)!=um.end()){
+      count+= um[val];
+    }
+   um[prefix[j]]++;
   }
 
   return count;
