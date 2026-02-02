@@ -27,7 +27,7 @@ int main()
     vector<int> arr = {1, 2, 3};
     vector<vector<int>> finalAns = subsets(arr);
 for(int i =0; i<finalAns.size(); i++){
-    for(int j =0; j<finalAns[0].size(); j++){
+    for(int j =0; j<finalAns[i].size(); j++){
     cout<< finalAns[i][j];
 }
 cout << endl;
