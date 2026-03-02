@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <string>
 using namespace std;
 bool isSafe(vector<string> &board ,int row , int n,int colmn){
